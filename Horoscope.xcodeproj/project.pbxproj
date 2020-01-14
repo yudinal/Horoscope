@@ -19,6 +19,7 @@
 		A6FDB77D23CD395C0074ADBA /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FDB77C23CD395C0074ADBA /* AppError.swift */; };
 		A6FDB77F23CD3C6A0074ADBA /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FDB77E23CD3C6A0074ADBA /* NetworkHelper.swift */; };
 		A6FDB78123CD42230074ADBA /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FDB78023CD42230074ADBA /* AlertExtension.swift */; };
+		A6FDB78C23CE4D9F0074ADBA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FDB78B23CE4D9E0074ADBA /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		A6FDB77C23CD395C0074ADBA /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		A6FDB77E23CD3C6A0074ADBA /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		A6FDB78023CD42230074ADBA /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
+		A6FDB78B23CE4D9E0074ADBA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				A6FDB75623CD1F400074ADBA /* AppDelegate.swift */,
 				A6FDB75823CD1F400074ADBA /* SceneDelegate.swift */,
 				A6FDB75A23CD1F400074ADBA /* PickSignViewController.swift */,
+				A6FDB78B23CE4D9E0074ADBA /* DetailViewController.swift */,
 				A6FDB77823CD33520074ADBA /* Horoscope.swift */,
 				A6FDB77A23CD37530074ADBA /* HoroscopeAPIClient.swift */,
 				A6FDB77E23CD3C6A0074ADBA /* NetworkHelper.swift */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6FDB78C23CE4D9F0074ADBA /* DetailViewController.swift in Sources */,
 				A6FDB77F23CD3C6A0074ADBA /* NetworkHelper.swift in Sources */,
 				A6FDB75B23CD1F400074ADBA /* PickSignViewController.swift in Sources */,
 				A6FDB77B23CD37530074ADBA /* HoroscopeAPIClient.swift in Sources */,

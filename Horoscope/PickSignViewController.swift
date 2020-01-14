@@ -16,30 +16,18 @@ class PickSignViewController: UIViewController {
     private let signs = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"].sorted()
     private var signName: String?
     
-    private var horoscopes = [Horoscope]() {
-        didSet {
-            
-        }
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadHoroscopes()
         signPicker.dataSource = self
         signPicker.delegate = self
         signName = signs.first
     }
-    private func loadHoroscopes() {
-        HoroscopeAPIClient.getHoroscope(for: "Libra") { [weak self] (result) in
-            switch result {
-            case .failure(let appError):
-                DispatchQueue.main.async {
-                    self?.showAlert(title: "App Error", message: "\(appError)")
-                }
-            case .success(let horoscopes):
-                self?.horoscopes = horoscopes
-            }
-        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if segue.identifier = "openHoroscopeVC"
     }
+
 
 }
 

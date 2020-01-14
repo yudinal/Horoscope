@@ -9,7 +9,7 @@
 import Foundation
 
 struct HoroscopeAPIClient {
-    static func getHoroscope(for searchQuery: String, completion: @escaping (Result<[Horoscope], AppError>) -> ()) {
+    static func getHoroscope(for searchQuery: String, completion: @escaping (Result<Horoscope, AppError>) -> ()) {
         
         let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "lily"
         let horoscopeEndpointURL = "http://sandipbgt.com/theastrologer/api/horoscope/\(searchQuery)/today"
@@ -26,7 +26,7 @@ struct HoroscopeAPIClient {
                 completion(.failure(.networkClientError(appError)))
             case .success(let data):
                 do {
-                    let horoscopes = try JSONDecoder().decode([Horoscope].self, from: data)
+                    let horoscopes = try JSONDecoder().decode(Horoscope.self, from: data)
                     completion(.success(horoscopes))
                 } catch {
                     completion(.failure(.decodingError(error)))

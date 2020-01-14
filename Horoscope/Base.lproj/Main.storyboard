@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pick Sign View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Horoscope" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PickSignViewController" customModule="Horoscope" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +26,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-zI-kke">
                                 <rect key="frame" x="142" y="563" width="130" height="30"/>
                                 <state key="normal" title="See the horoscope"/>
+                                <connections>
+                                    <segue destination="6SF-zA-K8u" kind="show" identifier="openHoroscopeVC" id="Gjs-C8-ibU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -43,19 +46,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="asE-ws-5md"/>
                     <connections>
-                        <outlet property="signPicker" destination="Ppe-el-ZNE" id="qDn-SG-hEq"/>
+                        <outlet property="signPicker" destination="Ppe-el-ZNE" id="Zf1-Ru-tOH"/>
                         <outlet property="userName" destination="kKI-qs-rEc" id="KxW-1G-ffd"/>
-                        <segue destination="6SF-zA-K8u" kind="show" id="ho4-tl-lKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="118.52678571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="njR-fp-gYW">
             <objects>
-                <viewController id="6SF-zA-K8u" sceneMemberID="viewController">
+                <viewController id="6SF-zA-K8u" customClass="DetailViewController" customModule="Horoscope" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kyD-Fv-VHG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,10 +96,15 @@
                         <viewLayoutGuide key="safeArea" id="O6a-nS-yUR"/>
                     </view>
                     <navigationItem key="navigationItem" id="ct1-BO-UZF"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="5AH-iP-VWQ" id="KpB-IE-fXE"/>
+                        <outlet property="signNameLabel" destination="h2d-AW-WcW" id="e2U-9C-BFS"/>
+                        <outlet property="todayHoroscope" destination="tT1-yx-Bam" id="G5Q-8K-yfT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ekr-cd-bOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="123"/>
+            <point key="canvasLocation" x="1974" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0rn-dz-RDI">
