@@ -9,10 +9,9 @@
 import Foundation
 
 struct HoroscopeAPIClient {
-    static func getHoroscope(for searchQuery: String, completion: @escaping (Result<Horoscope, AppError>) -> ()) {
+    static func getHoroscope(for sign: String, completion: @escaping (Result<Horoscope, AppError>) -> ()) {
         
-        let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "lily"
-        let horoscopeEndpointURL = "http://sandipbgt.com/theastrologer/api/horoscope/\(searchQuery)/today"
+        let horoscopeEndpointURL = "http://sandipbgt.com/theastrologer/api/horoscope/\(sign)/today"
         
         guard let url = URL(string: horoscopeEndpointURL) else {
             completion(.failure(.badURL(horoscopeEndpointURL)))

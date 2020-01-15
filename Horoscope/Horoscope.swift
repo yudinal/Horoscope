@@ -8,10 +8,6 @@
 
 import Foundation
 
-//struct Horoscopes: Codable {
-//    let results: [Horoscope]
-//}
-
 struct Horoscope: Codable {
     let sunsign: String
     let date: String

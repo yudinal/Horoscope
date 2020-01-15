@@ -12,22 +12,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PickSignViewController" customModule="Horoscope" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKI-qs-rEc">
-                                <rect key="frame" x="8" y="178" width="398" height="34"/>
+                                <rect key="frame" x="8" y="90" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-el-ZNE">
-                                <rect key="frame" x="20" y="312" width="374" height="216"/>
+                                <rect key="frame" x="20" y="224" width="374" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-zI-kke">
-                                <rect key="frame" x="142" y="563" width="130" height="30"/>
+                                <rect key="frame" x="142" y="475" width="130" height="30"/>
                                 <state key="normal" title="See the horoscope"/>
                                 <connections>
-                                    <segue destination="6SF-zA-K8u" kind="show" identifier="openHoroscopeVC" id="Gjs-C8-ibU"/>
+                                    <action selector="seeHoroscopeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lt5-hK-1kH"/>
+                                    <segue destination="cAR-Hu-2Kf" kind="unwind" unwindAction="unwindWithSegue:" id="gNx-Ou-xki"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,60 +52,70 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="cAR-Hu-2Kf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="118.52678571428571"/>
+            <point key="canvasLocation" x="986" y="-546"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Horoscope View Controller-->
         <scene sceneID="njR-fp-gYW">
             <objects>
-                <viewController id="6SF-zA-K8u" customClass="DetailViewController" customModule="Horoscope" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6SF-zA-K8u" customClass="HoroscopeViewController" customModule="Horoscope" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kyD-Fv-VHG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-iP-VWQ">
-                                <rect key="frame" x="8" y="148" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Name. Please enter the name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-iP-VWQ">
+                                <rect key="frame" x="8" y="148" width="398" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Name and Birthday dates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2d-AW-WcW">
-                                <rect key="frame" x="8" y="219" width="398" height="21"/>
+                                <rect key="frame" x="8" y="216" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tT1-yx-Bam">
-                                <rect key="frame" x="8" y="260" width="398" height="594"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Pl-lk-W5v">
+                                <rect key="frame" x="20" y="245" width="374" height="617"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5AH-iP-VWQ" firstAttribute="top" secondItem="O6a-nS-yUR" secondAttribute="top" constant="60" id="1Pk-JC-FBF"/>
+                            <constraint firstItem="1Pl-lk-W5v" firstAttribute="top" secondItem="h2d-AW-WcW" secondAttribute="bottom" constant="8" id="CfL-RM-dal"/>
                             <constraint firstItem="h2d-AW-WcW" firstAttribute="top" secondItem="5AH-iP-VWQ" secondAttribute="bottom" constant="50" id="E7Z-Od-fL0"/>
-                            <constraint firstItem="tT1-yx-Bam" firstAttribute="leading" secondItem="O6a-nS-yUR" secondAttribute="leading" constant="8" id="EXp-Za-sz9"/>
                             <constraint firstItem="h2d-AW-WcW" firstAttribute="leading" secondItem="O6a-nS-yUR" secondAttribute="leading" constant="8" id="FU1-aq-1Cm"/>
                             <constraint firstItem="O6a-nS-yUR" firstAttribute="trailing" secondItem="h2d-AW-WcW" secondAttribute="trailing" constant="8" id="H7s-Dy-iui"/>
-                            <constraint firstItem="O6a-nS-yUR" firstAttribute="trailing" secondItem="tT1-yx-Bam" secondAttribute="trailing" constant="8" id="UX9-lB-5t9"/>
+                            <constraint firstItem="1Pl-lk-W5v" firstAttribute="leading" secondItem="O6a-nS-yUR" secondAttribute="leading" constant="20" id="UWg-pW-UcW"/>
                             <constraint firstItem="5AH-iP-VWQ" firstAttribute="leading" secondItem="O6a-nS-yUR" secondAttribute="leading" constant="8" id="Wnx-Dr-1jk"/>
-                            <constraint firstItem="tT1-yx-Bam" firstAttribute="top" secondItem="h2d-AW-WcW" secondAttribute="bottom" constant="20" id="Yr6-ZB-53L"/>
-                            <constraint firstItem="O6a-nS-yUR" firstAttribute="bottom" secondItem="tT1-yx-Bam" secondAttribute="bottom" constant="8" id="fsh-7U-pFZ"/>
+                            <constraint firstItem="O6a-nS-yUR" firstAttribute="trailing" secondItem="1Pl-lk-W5v" secondAttribute="trailing" constant="20" id="gzS-Vl-ych"/>
                             <constraint firstItem="O6a-nS-yUR" firstAttribute="trailing" secondItem="5AH-iP-VWQ" secondAttribute="trailing" constant="8" id="tjV-gQ-VRt"/>
+                            <constraint firstItem="1Pl-lk-W5v" firstAttribute="bottom" secondItem="O6a-nS-yUR" secondAttribute="bottom" id="wdo-xZ-f0k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O6a-nS-yUR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ct1-BO-UZF"/>
+                    <navigationItem key="navigationItem" id="ct1-BO-UZF">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="7IY-gz-vc0">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="openHoroscopeVC" id="8rZ-ss-tnN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="5AH-iP-VWQ" id="KpB-IE-fXE"/>
                         <outlet property="signNameLabel" destination="h2d-AW-WcW" id="e2U-9C-BFS"/>
-                        <outlet property="todayHoroscope" destination="tT1-yx-Bam" id="G5Q-8K-yfT"/>
+                        <outlet property="todayHoroscope" destination="1Pl-lk-W5v" id="9tf-8l-UXi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ekr-cd-bOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="119"/>
+            <point key="canvasLocation" x="985.50724637681162" y="118.52678571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0rn-dz-RDI">
@@ -117,7 +128,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OKF-Pp-kNW"/>
+                        <segue destination="6SF-zA-K8u" kind="relationship" relationship="rootViewController" id="5Zt-3U-51c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2h-Ba-WM6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,4 +136,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gear" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
