@@ -13,9 +13,10 @@ class HoroscopeViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var signNameLabel: UILabel!
     @IBOutlet weak var todayHoroscope: UITextView!
-    
+
     var pickedSign = 1
     var pickedSignStr: String = ""
+    var userName: String = ""
     var horoscope: Horoscope? {
         didSet {
             DispatchQueue.main.async {
@@ -47,6 +48,15 @@ class HoroscopeViewController: UIViewController {
     func updateUI() {
         signNameLabel.text = horoscope?.sunsign
         todayHoroscope.text = horoscope?.horoscope
+        if let name = UserPreference.shared.getName() {
+            nameLabel.text = name
+        }
+        if let sign = UserPreference.shared.getSign() {
+            signNameLabel.text = sign
+            loadHoroscopes(with: sign)
+            
+        }
+        
         
     }
     
@@ -56,5 +66,7 @@ class HoroscopeViewController: UIViewController {
         }
         let sign = pickSignViewController.userSelectedSign
         loadHoroscopes(with: sign.lowercased())
+        let name = pickSignViewController.names
+        nameLabel.text = name
     }
 }

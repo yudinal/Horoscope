@@ -19,17 +19,21 @@ class PickSignViewController: UIViewController {
     var horoscope: Horoscope?
     var selectedPickerIndex = 0
     var userSelectedSign = "aries"
+    var names: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         signPicker.dataSource = self
         signPicker.delegate = self
         signName = signs.first
+        userName.delegate = self
+//        names = userName.text
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let selectedSign = signPicker?.selectedRow(inComponent: 0) {
             selectedPickerIndex = selectedSign
+     
         }
     }
 
@@ -48,9 +52,10 @@ class PickSignViewController: UIViewController {
     }
     
     @IBAction func seeHoroscopeAction(_ sender: UIButton) {
-    
+      
         guard  userName.hasText else {
-            self.showAlert(title: "Sorry", message: "Name required")
+                self.showAlert(title: "Sorry", message: "Name required")
+                    
             return}
         guard userSelectedSign != "" else {
             showAlert(title: "Sorry", message: "Please select the sign")
@@ -75,6 +80,19 @@ extension PickSignViewController: UIPickerViewDelegate {
     return signs[row]
   }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if names == nil {
+            self.showAlert(title: "Sorry", message: "Please, enter the name!")
+        }
         userSelectedSign = signs[row].lowercased()
+        UserPreference.shared.updatePickedSign(with: userSelectedSign)
     }
+}
+
+extension PickSignViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    names = textField.text ?? ""
+    UserPreference.shared.updateName(with: names ?? "")
+    return true
+  }
 }
